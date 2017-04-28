@@ -116,7 +116,12 @@ class VersionTests: XCTestCase {
             Version("1.2.3-alpha"),
             Version("1.2.3-alpha+B001"),
             Version("1.2.3"),
-            Version("1.2.3+B001")
+            Version("1.2.3+B001"),
+            Version("2.0.0-alpha"),
+            Version("2.0.0-alpha+B001"),
+            Version("2.0.0-beta"),
+            Version("2.0.0-beta+B001"),
+            Version("2.0.0"),
         ].map { $0! }
         for (index, less) in versions.enumerated() {
             let range = (index + 1)..<(versions.count)
