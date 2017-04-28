@@ -139,7 +139,7 @@ class VersionParserTests: XCTestCase {
         let parser = VersionParser(strict: true)
         for string in self.semiValidStrings {
             do {
-                try parser.parse(string)
+                try _ = parser.parse(string)
                 XCTFail()
             } catch {
                 
@@ -151,7 +151,7 @@ class VersionParserTests: XCTestCase {
         let parser = VersionParser(strict: true)
         for string in self.invalidStrings {
             do {
-                try parser.parse(string)
+                try _ = parser.parse(string)
                 XCTFail()
             } catch {
                 
@@ -187,7 +187,7 @@ class VersionParserTests: XCTestCase {
         let parser = VersionParser(strict: false)
         for string in self.invalidStrings {
             do {
-                try parser.parse(string)
+                try _ = parser.parse(string)
                 XCTFail()
             } catch {
                 
