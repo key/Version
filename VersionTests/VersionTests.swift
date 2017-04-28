@@ -100,7 +100,7 @@ class VersionTests: XCTestCase {
     }
     
     func testComparable() {
-        let versions = [
+        var versions = [
             Version("1.0.0-alpha"),
             Version("1.0.0-alpha+B001"),
             Version("1.0.0"),
@@ -123,6 +123,21 @@ class VersionTests: XCTestCase {
             Version("2.0.0-beta+B001"),
             Version("2.0.0"),
         ].map { $0! }
+        for (index, less) in versions.enumerated() {
+            let range = (index + 1)..<(versions.count)
+            for greater in versions[range] {
+                XCTAssert(less <= greater)
+            }
+        }
+        versions = [
+            Version("1.0.0"),
+            Version("1.0.1"),
+            Version("1.1.0"),
+            Version("1.1.1"),
+            Version("1.2.0"),
+            Version("1.2.1"),
+            Version("2.0.0"),
+            ].map { $0! }
         for (index, less) in versions.enumerated() {
             let range = (index + 1)..<(versions.count)
             for greater in versions[range] {
