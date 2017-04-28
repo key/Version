@@ -88,8 +88,10 @@ class VersionTests: XCTestCase {
     }
     
     func testComparableForIgnoredBuild() {
-        let a = Version("1.0.0-alpha+buildA")
-        let b = Version("1.0.0-alpha+buildB")
+        let a: Version!
+        let b: Version!
+        a = Version("1.0.0-alpha+buildA")
+        b = Version("1.0.0-alpha+buildB")
         XCTAssertTrue(a == b)
         XCTAssertTrue(a <= b)
         XCTAssertTrue(a >= b)
